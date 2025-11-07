@@ -1,0 +1,109 @@
+/* Базовая вёрстка для учебного проекта */
+:root {
+  --bg: #0b1020;
+  --panel: #12172a;
+  --text: #e6e8ef;
+  --muted: #aeb4c3;
+  --accent: #4f7cff;
+  --accent-2: #2ecc71;
+  --danger: #e74c3c;
+  --selected-bg: rgba(79, 124, 255, 0.18);
+  --border: #232a44;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 10% 0%, #0b1020 0%, #090e1d 40%, #070b18 100%);
+  color: var(--text);
+}
+
+.container {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 24px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 28px;
+}
+
+.controls { display: flex; gap: 12px; margin-bottom: 16px; }
+
+input#user-name {
+  flex: 1;
+  background: #0e1430;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+input#user-name:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.15); }
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.filters { display: flex; gap: 8px; margin-top: 16px; }
+
+.filters #filter-selected { background: var(--accent-2); }
+
+.user-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+
+.user-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #0e1430;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.user-item.selected { background: var(--selected-bg); border-color: var(--accent); }
+
+.user-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+
+.user-name {
+  font-weight: 600;
+  color: var(--text);
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+
+.user-name[contenteditable="true"] {
+  outline: 2px solid var(--accent);
+  background: rgba(79, 124, 255, 0.12);
+}
+
+.user-actions { display: flex; gap: 8px; }
+
+.btn-edit { background: #7f8c8d; }
+.btn-delete { background: var(--danger); }
+
+.empty-hint {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
